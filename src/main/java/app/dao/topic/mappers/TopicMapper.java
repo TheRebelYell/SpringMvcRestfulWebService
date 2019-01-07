@@ -1,6 +1,6 @@
-package dao.topic.mappers;
+package app.dao.topic.mappers;
 
-import entity.Topic;
+import app.entity.Topic;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

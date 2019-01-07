@@ -7,13 +7,16 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.sql.DataSource;
 
 @Configuration
+@EnableWebMvc
 @ComponentScan(basePackages = "app.*")
 @PropertySource("classpath:application.properties")
-public class ApplicationContextConfig {
+public class WebMvcConfig implements WebMvcConfigurer {
     @Autowired
     Environment environment;
 
@@ -22,7 +25,7 @@ public class ApplicationContextConfig {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(environment.getProperty("driverClassName"));
         dataSource.setUrl(environment.getProperty("url"));
-        dataSource.setUsername(environment.getProperty("username"));
+        dataSource.setUsername(environment.getProperty("user"));
         dataSource.setPassword(environment.getProperty("password"));
 
         return dataSource;

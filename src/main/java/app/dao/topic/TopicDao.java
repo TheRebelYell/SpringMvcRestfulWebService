@@ -1,6 +1,6 @@
-package dao.topic;
+package app.dao.topic;
 
-import entity.Topic;
+import app.entity.Topic;
 
 import java.util.List;
 
