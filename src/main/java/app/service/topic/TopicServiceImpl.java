@@ -1,7 +1,8 @@
-package app.service;
+package app.service.topic;
 
 import app.dao.topic.TopicDao;
 import app.entity.Topic;
+import app.service.topic.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
 package app.controller;
 
 import app.entity.Topic;
-import app.service.TopicService;
+import app.service.topic.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
