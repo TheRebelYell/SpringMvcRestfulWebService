@@ -5,7 +5,7 @@ public class Course {
     private String name;
     private String description;
 
-    private String topicId;
+    private Topic topic;
 
     public Course() {
     }
@@ -14,7 +14,7 @@ public class Course {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.topicId = topicId;
+        this.topic = new Topic(topicId, "", "");
     }
 
     public String getId() {
@@ -41,11 +41,11 @@ public class Course {
         this.description = description;
     }
 
-    public String getTopicId() {
-        return topicId;
+    public Topic getTopic() {
+        return topic;
     }
 
-    public void setTopicId(String topicId) {
-        this.topicId = topicId;
+    public void setTopic(Topic topic) {
+        this.topic = topic;
     }
 }

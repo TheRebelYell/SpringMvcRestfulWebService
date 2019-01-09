@@ -9,11 +9,12 @@ import java.sql.SQLException;
 public class CourseMapper implements RowMapper<Course> {
     @Override
     public Course mapRow(ResultSet rs, int rowNum) throws SQLException {
-        Course course = new Course();
-        course.setId(rs.getString("id"));
-        course.setName(rs.getString("name"));
-        course.setDescription(rs.getString("description"));
-        course.setTopicId(rs.getString("topic_id"));
+        String id = rs.getString("id");
+        String name = rs.getString("name");
+        String description = rs.getString("description");
+        String topicId = rs.getString("topic_id");
+
+        Course course = new Course(id, name, description, topicId);
 
         return course;
     }

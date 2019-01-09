@@ -2,6 +2,7 @@ package app.service.course;
 
 import app.dao.course.CourseDao;
 import app.entity.Course;
+import app.entity.Topic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,22 +23,24 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public Course getCourseById(String id) {
-        return courseDao.getCourseById(id);
+    public Course getCourseById(String id, String topicId) {
+        return courseDao.getCourseById(id, topicId);
     }
 
     @Override
-    public void insertCourse(Course course) {
+    public void insertCourse(Course course, String topicId) {
+        course.setTopic(new Topic(topicId, "", ""));
         courseDao.insertCourse(course);
     }
 
     @Override
-    public void updateCourse(Course course) {
+    public void updateCourse(Course course, String topicId) {
+        course.setTopic(new Topic(topicId, "", ""));
         courseDao.updateCourse(course);
     }
 
     @Override
-    public void deleteCourseById(String topicId, String id) {
-        courseDao.deleteCourseById(topicId, id);
+    public void deleteCourseById(String id, String topicId) {
+        courseDao.deleteCourseById(id, topicId);
     }
 }

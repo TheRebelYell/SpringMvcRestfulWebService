@@ -20,24 +20,22 @@ public class CourseController {
     }
 
     @GetMapping(value = "/topics/{topicId}/courses/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Course getCourseById(@PathVariable String id) {
-        return courseService.getCourseById(id);
+    public Course getCourseById(@PathVariable String id, @PathVariable String topicId) {
+        return courseService.getCourseById(id, topicId);
     }
 
     @PostMapping(value = "/topics/{topicId}/courses", produces = MediaType.APPLICATION_JSON_VALUE)
     public void insertCourse(@RequestBody Course course, @PathVariable String topicId) {
-        course.setTopicId(topicId);
-        courseService.insertCourse(course);
+        courseService.insertCourse(course, topicId);
     }
 
     @PutMapping(value = "/topics/{topicId}/courses", produces = MediaType.APPLICATION_JSON_VALUE)
     public void updateCourse(@RequestBody Course course, @PathVariable String topicId) {
-        course.setTopicId(topicId);
-        courseService.updateCourse(course);
+        courseService.updateCourse(course, topicId);
     }
 
     @DeleteMapping(value = "/topics/{topicId}/courses/{id}")
-    public void deleteCourse(@PathVariable String topicId, @PathVariable String id) {
-        courseService.deleteCourseById(topicId, id);
+    public void deleteCourse(@PathVariable String id, @PathVariable String topicId) {
+        courseService.deleteCourseById(id, topicId);
     }
 }
